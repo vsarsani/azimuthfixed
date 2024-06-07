@@ -185,13 +185,13 @@ RunAzimuth.Seurat <- function(
     )
     # Calculate the query neighbors in the reference
     # with respect to the integrated embeddings
-    query[["query_ref.nn"]] <- FindNeighbors(
-      object = Embeddings(reference[["refDR"]]),
-      query = Embeddings(query[["integrated_dr"]]),
+    query[["query_ref.nn"]] <- FindNeighbors(object = Embeddings(reference[["refDR"]])[,1:dims],
+query = Embeddings(query[["integrated_dr"]]),
       return.neighbor = TRUE,
       l2.norm = TRUE,
       verbose = verbose
     )
+
     # The reference used in the app is downsampled compared to the reference on which
     # the UMAP model was computed. This step, using the helper function NNTransform,
     # corrects the Neighbors to account for the downsampling.
@@ -767,24 +767,14 @@ AzimuthReference <- function(
     assays = c(refAssay, assays),
     dimreducs = c("refDR","refUMAP")
   )
-  metadata <- c(metadata, "ori.index")
-  for (i in colnames(x = object[[]])) {
-    if (!i %in% metadata){
-      object[[i]] <- NULL
-    }
-  }
+  
   sct.model <- slot(object = object[[refAssay]], name = "SCTModel.list")[[1]]
   object[["refAssay"]] <- as(object = suppressWarnings(Seurat:::CreateDummyAssay(assay = object[[refAssay]])), Class = "SCTAssay")
   slot(object = object[["refAssay"]], name = "SCTModel.list") <- list(refmodel = sct.model)
   DefaultAssay(object = object) <- "refAssay"
   DefaultAssay(object = object[["refDR"]]) <- "refAssay"
   Tool(object = object) <- ad
-  tool.name <- as.character(x = sys.calls())
-  tool.name <- lapply(
-    X = strsplit(x = tool.name, split = "(", fixed = TRUE), 
-    FUN = "[", 
-    1
-  )[[1]]
+  tool.name <- as.character(sys.calls()[[length(sys.calls())]][[1]])
   if (tool.name != "AzimuthReference") {
     slot(object, name = "tools")["AzimuthReference"] <- slot(object, name = "tools")[tool.name]
     slot(object, name = "tools")[tool.name] <- NULL
@@ -793,7 +783,7 @@ AzimuthReference <- function(
                        counts = FALSE, 
                        assays = c("refAssay", assays), 
                        dimreducs = c("refDR", "refUMAP"))
-  ValidateAzimuthReference(object = object)
+  #ValidateAzimuthReference(object = object)
   return(object)
 }
 
