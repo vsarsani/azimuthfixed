@@ -1,19 +1,10 @@
 Package: Azimuth
 Type: Package
-Title: A Shiny App Demonstrating a Query-Reference Mapping Algorithm for Single-Cell Data
-Version: 0.5.0
-Date: 2023-04-06
-Authors@R: c(
-  person(given = 'Andrew', family = 'Butler', email = 'abutler@nygenome.org', role = 'aut', comment = c(ORCID = '0000-0003-3608-0463')),
-  person(given = "Charlotte", family = "Darby", email = "cdarby@nygenome.org", role = "aut", comment = c(ORCID = "0000-0003-2195-5300")),
-  person(given = "Yuhan", family = "Hao", email = "yhao@nygenome.org", role = "aut", comment = c(ORCID = "0000-0002-1810-0822")),
-  person(given = "Austin", family = "Hartman", email = 'ahartman@nygenome.org', role = 'aut', comment = c(ORCID = '0000-0001-7278-1852')),
-  person(given = "Paul", family = "Hoffman", email = "phoffman@nygenome.org", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7693-8957")),
-  person(given = "Jaison", family = "Jain", email = "jjain@nygenome.org", role = "ctb", comment = c(ORCID = "0000-0002-9478-5018")),
-  person(given = "Gesmira", family = "Molla", email = 'gmolla@nygenome.org', role = 'aut', comment = c(ORCID = '0000-0002-8628-5056')),
-  person(given = "Rahul", family = "Satija", email = "rsatija@nygenome.org", role = "aut", comment = c(ORCID = "0000-0001-9448-8833")),
-  person("Satija Lab and Collaborators", role = "fnd")
-  )
+Title: What the Package Does (one line, title case)
+Version: 0.1.0
+Author: Your Name
+Maintainer: Your Name <your.email@example.com>
+Description: A brief description of the package.
 Description: Azimuth uses an annotated reference dataset to automate the processing, analysis, and interpretation of a new single-cell RNA-seq or ATAC-seq experiment. Azimuth leverages a 'reference-based mapping' pipeline that inputs a counts matrix and performs normalization, visualization, cell annotation, and differential expression (biomarker discovery). 
 URL: https://github.com/satijalab/azimuth
 BugReports: https://github.com/satijalab/azimuth/issues
