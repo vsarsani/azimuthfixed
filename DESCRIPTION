@@ -4,8 +4,7 @@ Title: What the Package Does (one line, title case)
 Version: 0.1.0
 Author: Your Name
 Maintainer: Your Name <your.email@example.com>
-Description: A brief description of the package.
-Description: Azimuth uses an annotated reference dataset to automate the processing, analysis, and interpretation of a new single-cell RNA-seq or ATAC-seq experiment. Azimuth leverages a 'reference-based mapping' pipeline that inputs a counts matrix and performs normalization, visualization, cell annotation, and differential expression (biomarker discovery). 
+Description: Azimuth uses an annotated reference dataset to automate the processing, analysis, and interpretation of a new single-cell RNA-seq or ATAC-seq experiment. Azimuth leverages a 'reference-based mapping' pipeline that inputs a counts matrix and performs normalization, visualization, cell annotation, and differential expression (biomarker discovery).
 URL: https://github.com/satijalab/azimuth
 BugReports: https://github.com/satijalab/azimuth/issues
 License: GPL-3 | file LICENSE
@@ -55,7 +54,7 @@ Imports:
   utils,
   plotly,
   withr (>= 2.3.0)
-LinkingTo: Rcpp(>= 0.11.0)
+LinkingTo: Rcpp (>= 0.11.0)
 Collate:
     'RcppExports.R'
     'zzz.R'
